@@ -27,7 +27,7 @@ class WxUserController extends Controller
         $page_title = "人员列表";
         $page_level = $this->page_level;
 
-        return view('wx_users.index', compact('wxUsers', 'page_title', 'page_level'));
+        return view('wx-users.index', compact('wxUsers', 'page_title', 'page_level'));
     }
 
     /**
@@ -86,7 +86,7 @@ class WxUserController extends Controller
         $page_title = "编辑人员";
         $page_level = $this->page_level;
 
-        return view('wx_users.edit', compact('wxUser', 'page_title', 'page_level'));
+        return view('wx-users.edit', compact('wxUser', 'page_title', 'page_level'));
     }
 
     /**
@@ -106,7 +106,7 @@ class WxUserController extends Controller
         try {
             $wxUser->save();
 
-            return redirect()->route('wx_users.index')->withSuccess('编辑人员成功');
+            return redirect()->route('wx-users.index')->withSuccess('编辑人员成功');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
         }

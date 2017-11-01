@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Business;
 
 use App\Http\Helper\EasyWeChat;
-use App\Models\Cms\WxUser;
+use App\Models\cms\WxUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

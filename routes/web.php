@@ -12,25 +12,15 @@
 */
 
 /**
- * 登陆/登出
- */
-//Route::group(['namespace' => 'Auth'], function () {
-//    Route::get('login', 'AuthController@getLogin');
-//    Route::post('login', 'AuthController@postLogin');
-//    Route::get('logout', 'AuthController@getLogout');
-//
-//    Route::group(['prefix' => 'auth'], function () {
-//        Route::get('login', 'AuthController@getLogin');
-//        Route::post('login', 'AuthController@postLogin');
-//        Route::get('logout', 'AuthController@getLogout');
-//    });
-//});
-
-/**
  * 后台管理 : 首页 | 用户管理 | 菜单管理 | 角色管理 | 权限管理
  */
 Route::group(['prefix' => 'cms', 'namespace' => 'Backend', 'middleware' => ['auth', 'Entrust']], function () {
     Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
+
+    Route::resource('user', 'UserController');
+    Route::resource('menu', 'MenuController');
+    Route::resource('role', 'RoleController');
+    Route::resource('permission', 'PermissionController');
 });
 
 Route::group(['prefix' => 'cms'], function () {

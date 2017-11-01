@@ -38,4 +38,23 @@ $api->version('v1', function ($api) {
             });
         });
     });
+
+
+
+    /**
+     * WeChat Notify Url
+     */
+    $api->group(['namespace' => 'App\Http\Controllers'], function ($api) {
+        $api->group(['prefix' => 'pay'], function ($api) {
+            $api->post('pay_notify_url', 'WxPayController@payNotifyUrl');
+            $api->post('notify_url', 'WxPayController@notifyUrl');
+            $api->post('video_buy_notify_url', 'WxPayController@videoBuyNotifyUrl');
+        });
+    });
 });
+
+
+/**
+ * 响应微信服务器
+ */
+Route::get('wx', 'WxAuthController@index');

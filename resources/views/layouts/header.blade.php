@@ -8,8 +8,8 @@
 ?>
 
 <header class="main-header">
-    <a href="{{url('/')}}" class="logo" style="text-align: left;">
-        <img src="/logo.png" style="width: 110px;">
+    <a href="{{url('/')}}" class="logo" style="font-family:'Microsoft YaHei',Arial,Helvetica,sans-serif,'宋体';">
+        辣椒旅行
     </a>
 
     <nav class="navbar navbar-static-top" role="navigation">

@@ -14,7 +14,7 @@ $api->version('v1', function ($api) {
     /**
      * Api Doc
      */
-    $api->get('/doc', '\App\Api\Controllers\ApiDoc@index');
+    $api->get('/doc', 'App\Api\Controllers\ApiDoc@index');
     $api->group(['namespace' => 'App\Api\Controllers', 'middleware' => ['jwt.api.auth']], function ($api) {
         /**
          * Register & Login
@@ -36,7 +36,7 @@ $api->version('v1', function ($api) {
     /**
      * 响应微信服务器
      */
-    $api->get('wx', '\App\Api\Controllers\WxAuthController@index');
+    $api->get('wx', 'App\Api\Controllers\WxAuthController@index');
     /**
      * WeChat Notify Url
      */

@@ -9,18 +9,12 @@
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-
-
-/**
- * Api Doc
- */
-Route::get('/doc', '\App\Api\Controllers\ApiDoc@index');
-
-
-
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
+    /**
+     * Api Doc
+     */
+    $api->get('/doc', '\App\Api\Controllers\ApiDoc@index');
     $api->group(['namespace' => 'App\Api\Controllers', 'middleware' => ['jwt.api.auth']], function ($api) {
         /**
          * Register & Login
@@ -39,12 +33,14 @@ $api->version('v1', function ($api) {
         });
     });
 
-
-
+    /**
+     * 响应微信服务器
+     */
+    $api->get('wx', '\App\Api\Controllers\WxAuthController@index');
     /**
      * WeChat Notify Url
      */
-    $api->group(['namespace' => 'App\Http\Controllers'], function ($api) {
+    $api->group(['namespace' => 'App\Api\Controllers'], function ($api) {
         $api->group(['prefix' => 'pay'], function ($api) {
             $api->post('pay_notify_url', 'WxPayController@payNotifyUrl');
             $api->post('notify_url', 'WxPayController@notifyUrl');
@@ -52,9 +48,3 @@ $api->version('v1', function ($api) {
         });
     });
 });
-
-
-/**
- * 响应微信服务器
- */
-Route::get('wx', 'WxAuthController@index');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Api\Controllers;
 
 use App\Http\Helper\EasyWeChat;
 use App\VideoBuyList;
@@ -10,7 +10,7 @@ use EasyWeChat\Foundation\Application;
 use Illuminate\Support\Facades\Log;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-class WxPayController extends Controller
+class WxPayController extends BaseController
 {
     /**
      * 微信扫码支付回調函數

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Api\Controllers;
 
 use App\Http\Helper\EasyWeChat;
 
-class WxAuthController extends Controller
+class WxAuthController extends BaseController
 {
     public function index()
     {

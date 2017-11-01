@@ -32,19 +32,12 @@
                             <th>ID</th>
                             <th>头像</th>
                             <th>昵称</th>
-                            <th>姓名</th>
                         </tr>
                         @forelse($wxUsers as $wxUser)
                             <tr>
                                 <td>{{$wxUser->id}}</td>
                                 <td><img src="{{$wxUser->head_img_url}}" style="width: 45px;"></td>
                                 <td>{{$wxUser->nickname}}</td>
-                                <td>{{$wxUser->name}}</td>
-                                <td>
-                                    <a class="btn btn-info" href="{{URL::to('people/'.$wxUser->id.'/edit')}}">
-                                        编辑
-                                    </a>
-                                </td>
                             </tr>
                         @empty
                             <tr>

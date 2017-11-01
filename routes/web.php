@@ -27,3 +27,18 @@ Route::group(['prefix' => 'cms'], function () {
     Auth::routes();
 });
 
+
+/**
+ * 业务分组
+ */
+Route::group(['namespace' => 'Business', 'middleware' => ['auth','Entrust']], function () {
+    /**
+     * 微信菜单管理
+     */
+    Route::resource('menu', 'MenuController');
+
+    /**
+     * 人员管理
+     */
+    Route::resource('wx-user', 'WxUserController');
+});

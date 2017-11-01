@@ -35,7 +35,7 @@ Route::group(['namespace' => 'Business', 'middleware' => ['auth','Entrust']], fu
     /**
      * 微信菜单管理
      */
-    Route::resource('menu', 'MenuController');
+    Route::resource('wx-menu', 'WxMenuController');
 
     /**
      * 人员管理

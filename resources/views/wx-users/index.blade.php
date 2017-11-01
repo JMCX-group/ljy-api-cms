@@ -40,7 +40,7 @@
                                 <td>{{$wxUser->nickname}}</td>
                             </tr>
                         @empty
-                            <tr>
+                            <tr valign="middle">
                                 <td colspan="4" class="text-center">暂无数据</td>
                             </tr>
                         @endforelse
@@ -56,6 +56,7 @@
         </div>
     </div>
 @stop
+
 @section('script')
     <script type="text/javascript">
         $('#defalutModal').on('show.bs.modal', function (event) {
@@ -66,4 +67,12 @@
             modal.find('form').attr('action', url);
         })
     </script>
+@stop
+
+@section('style')
+    <style>
+        td {
+            vertical-align: middle!important;
+        }
+    </style>
 @stop

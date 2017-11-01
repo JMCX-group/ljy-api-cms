@@ -6,6 +6,7 @@ use App\Http\Helper\EasyWeChat;
 use App\Models\cms\WxUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 
 class WxUserController extends Controller
 {
@@ -21,7 +22,11 @@ class WxUserController extends Controller
         /**
          * 同步微信服务器端的数据：
          */
-        $this->syncUsers();
+        try{
+            $this->syncUsers();
+        }catch (\Exception $e) {
+            Log::info('wx-sync-err', ['context' => $e->getMessage()]);
+        }
 
         $wxUsers = WxUser::paginate(50);
         $page_title = "人员列表";
